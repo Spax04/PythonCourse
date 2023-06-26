@@ -18,27 +18,27 @@ print("4. Division")
 choice = int(input("Enter your choice: "))
 
 if choice == 1:
-operation = "+"
-num1 = float(input("Enter the first number: "))
-num2 = float(input("Enter the second number: "))
-result = num1 + num2
+    operation = "+"
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    result = num1 + num2
 elif choice == 2:
-operation = "-"
-num1 = float(input("Enter the first number: "))
-num2 = float(input("Enter the second number: "))
-result = num1 - num2
+    operation = "-"
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    result = num1 - num2
 elif choice == 3:
-operation = "*"
-num1 = float(input("Enter the first number: "))
-num2 = float(input("Enter the second number: "))
-result = num1 * num2
+    operation = "*"
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    result = num1 * num2
 elif choice == 4:
-operation = "/"
-num1 = float(input("Enter the first number: "))
-num2 = float(input("Enter the second number: "))
-result = num1 / num2
+    operation = "/"
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    result = num1 / num2
 else:
-print("Invalid choice. Please try again.")
+    print("Invalid choice. Please try again.")
 exit()
 
 print(f"\nResult: {num1} {operation} {num2} = {result}")

@@ -34,10 +34,10 @@ print("\nOccurrences of '", target_word, "' in the text:", occurrences)
 words = lowercase_text.split()
 word_count = {}
 for word in words:
-if word in word_count:
-word_count[word] += 1
-else:
-word_count[word] = 1
+    if word in word_count:
+        word_count[word] += 1
+    else:
+        word_count[word] = 1
 
 most_frequent_word = max(word_count, key=word_count.get)
 print("Most frequent word in the text:", most_frequent_word)

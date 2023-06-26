@@ -22,35 +22,35 @@ inventory.append(("Orange", 0.35, 20))
 
 print("Current Inventory:")
 for product in inventory:
-name, price, quantity = product
-print(f"Product: {name}, Price: {price}, Quantity: {quantity}")
+    name, price, quantity = product
+    print(f"Product: {name}, Price: {price}, Quantity: {quantity}")
 
 # Update the quantity of a product
 
 update_product = "Apple"
 new_quantity = 5
 for i, product in enumerate(inventory):
-name, price, quantity = product
-if name == update_product:
-inventory[i] = (name, price, new_quantity)
-print(f"Quantity of {update_product} updated to {new_quantity}.")
-break
+    name, price, quantity = product
+    if name == update_product:
+        inventory[i] = (name, price, new_quantity)
+        print(f"Quantity of {update_product} updated to {new_quantity}.")
+    break
 
 
 # Remove products from the inventory
 
 remove_product = "Banana"
 for product in inventory:
-name, price, quantity = product
-if name == remove_product:
-inventory.remove(product)
-print(f"{remove_product} removed from the inventory.")
-break
+    name, price, quantity = product
+    if name == remove_product:
+        inventory.remove(product)
+        print(f"{remove_product} removed from the inventory.")
+    break
 
 
 # Display the updated inventory
 
 print("Updated Inventory:")
 for product in inventory:
-name, price, quantity = product
-print(f"Product: {name}, Price: {price}, Quantity: {quantity}")
+    name, price, quantity = product
+    print(f"Product: {name}, Price: {price}, Quantity: {quantity}")

@@ -65,20 +65,20 @@ def add_book(inventory):
 def remove_book(inventory, book_id):
     if book_id in inventory:
         del inventory[book_id]
-    print(f"Book ID {book_id} removed from the inventory.")
+        print(f"Book ID {book_id} removed from the inventory.")
     else:
-    print(f"Book ID {book_id} is not present in the inventory.")
+        -print(f"Book ID {book_id} is not present in the inventory.")
 
 def update_book(inventory, book_id):
     if book_id in inventory:
         book_details = inventory[book_id]
-    quantity = int(input("Enter the new quantity: "))
-    price = float(input("Enter the new price: $"))
-    book_details['quantity'] = quantity
-    book_details['price'] = price
-    print(f"Book ID {book_id} updated.")
+        quantity = int(input("Enter the new quantity: "))
+        price = float(input("Enter the new price: $"))
+        book_details['quantity'] = quantity
+        book_details['price'] = price
+        print(f"Book ID {book_id} updated.")
     else:
-    print(f"Book ID {book_id} is not present in the inventory.")
+        print(f"Book ID {book_id} is not present in the inventory.")
 
 
 def inventory_management():

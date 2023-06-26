@@ -27,22 +27,22 @@ contacts["Jane"] = {
 
 print("All Contacts:")
 for name, info in contacts.items():
-print(f"Name: {name}")
-print(f"Phone: {info['phone']}")
-print(f"Email: {info['email']}")
-print()
+    print(f"Name: {name}")
+    print(f"Phone: {info['phone']}")
+    print(f"Email: {info['email']}")
+    print()
 
 
 # Search for a contact by name
 
 search_name = "John"
 if search_name in contacts:
-contact_info = contacts[search_name]
-print(f"Contact found for {search_name}:")
-print(f"Phone: {contact_info['phone']}")
-print(f"Email: {contact_info['email']}")
+    contact_info = contacts[search_name]
+    print(f"Contact found for {search_name}:")
+    print(f"Phone: {contact_info['phone']}")
+    print(f"Email: {contact_info['email']}")
 else:
-print(f"No contact found for {search_name}.")
+    print(f"No contact found for {search_name}.")
 
 
 # Update a contact's phone number
@@ -50,26 +50,26 @@ print(f"No contact found for {search_name}.")
 update_name = "John"
 new_phone = "5555555555"
 if update_name in contacts:
-contacts[update_name]["phone"] = new_phone
-print(f"Phone number updated for {update_name} to {new_phone}.")
+    contacts[update_name]["phone"] = new_phone
+    print(f"Phone number updated for {update_name} to {new_phone}.")
 else:
-print(f"No contact found for {update_name}.")
+    print(f"No contact found for {update_name}.")
 
 
 # Remove a contact
 
 remove_name = "Jane"
 if remove_name in contacts:
-del contacts[remove_name]
-print(f"{remove_name} removed from contacts.")
+    del contacts[remove_name]
+    print(f"{remove_name} removed from contacts.")
 else:
-print(f"No contact found for {remove_name}.")
+    print(f"No contact found for {remove_name}.")
 
 # Display the updated contact list
 
 print("Updated Contact List:")
 for name, info in contacts.items():
-print(f"Name: {name}")
-print(f"Phone: {info['phone']}")
-print(f"Email: {info['email']}")
-print()
+    print(f"Name: {name}")
+    print(f"Phone: {info['phone']}")
+    print(f"Email: {info['email']}")
+    print()

@@ -16,10 +16,10 @@ def display_contacts(contacts):
     print("Current Contact List:")
     for contact_id, contact_details in contacts.items():
         print(f"Contact ID: {contact_id}")
-    print(f"Name: {contact_details['name']}")
-    print(f"Phone Number: {contact_details['phone']}")
-    print(f"Email Address: {contact_details['email']}")
-    print("")
+        print(f"Name: {contact_details['name']}")
+        print(f"Phone Number: {contact_details['phone']}")
+        print(f"Email Address: {contact_details['email']}")
+        print("")
 
 def search_contact(contacts, name):
     found_contacts = []
@@ -30,11 +30,11 @@ def search_contact(contacts, name):
         print("Search Results:")
     for contact in found_contacts:
         print(f"Name: {contact['name']}")
-    print(f"Phone Number: {contact['phone']}")
-    print(f"Email Address: {contact['email']}")
-    print("")
+        print(f"Phone Number: {contact['phone']}")
+        print(f"Email Address: {contact['email']}")
+        print("")
     else:
-    print(f"No contacts found with the name '{name}'.")
+        print(f"No contacts found with the name '{name}'.")
 
 
 def sort_contacts(contacts, sort_criteria):
@@ -42,9 +42,9 @@ def sort_contacts(contacts, sort_criteria):
     print("Sorted Contact List:")
     for contact in sorted_contacts:
         print(f"Name: {contact['name']}")
-    print(f"Phone Number: {contact['phone']}")
-    print(f"Email Address: {contact['email']}")
-    print("")
+        print(f"Phone Number: {contact['phone']}")
+        print(f"Email Address: {contact['email']}")
+        print("")
 
 
 def add_contact(contacts):
@@ -60,21 +60,21 @@ def add_contact(contacts):
 def remove_contact(contacts, contact_id):
     if contact_id in contacts:
         del contacts[contact_id]
-    print(f"Contact ID {contact_id} removed from the list.")
+        print(f"Contact ID {contact_id} removed from the list.")
     else:
-    print(f"Contact ID {contact_id} is not present in the list.")
+        print(f"Contact ID {contact_id} is not present in the list.")
 
 
 def update_contact(contacts, contact_id):
     if contact_id in contacts:
         contact_details = contacts[contact_id]
-    phone = input("Enter the new phone number: ")
-    email = input("Enter the new email address: ")
-    contact_details['phone'] = phone
-    contact_details['email'] = email
-    print(f"Contact ID {contact_id} updated.")
+        phone = input("Enter the new phone number: ")
+        email = input("Enter the new email address: ")
+        contact_details['phone'] = phone
+        contact_details['email'] = email
+        print(f"Contact ID {contact_id} updated.")
     else:
-    print(f"Contact ID {contact_id} is not present in the list.")
+        print(f"Contact ID {contact_id} is not present in the list.")
 
 
 def contact_management():

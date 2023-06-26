@@ -44,11 +44,12 @@ class Book:
 
 class Novel(Book):
     def __init__(self, title, author, publication_year, genre):
-        super().init(title, author, publication_year)
+        super().__init__(title, author, publication_year)
         self.genre = genre
 
     def __str__(self):
         return super().__str__() + f"Genre: {self.genre}\n"
+
 
 class Library:
     def __init__(self):
@@ -65,6 +66,7 @@ class Library:
     def count_available_books(self):
         count = sum(not book.borrowed for book in self.books)
         print(f"Available Books: {count}")
+
 
 # Example usage
 library = Library()

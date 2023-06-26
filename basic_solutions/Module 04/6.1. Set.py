@@ -16,9 +16,9 @@ def add_student(submissions, student):
 def remove_student(submissions, student):
     if student in submissions:
         submissions.remove(student)
-    print(f"Student '{student}' removed from the submissions set.")
+        print(f"Student '{student}' removed from the submissions set.")
     else:
-    print(f"Student '{student}' is not in the submissions set.")
+        print(f"Student '{student}' is not in the submissions set.")
 
 
 def check_submission_status(submissions, student):

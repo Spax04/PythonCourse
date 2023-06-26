@@ -20,9 +20,9 @@ def add_product(inventory, product, quantity):
 def remove_product(inventory, product):
     if product in inventory:
         del inventory[product]
-    print(f"{product} removed from the inventory.")
+        print(f"{product} removed from the inventory.")
     else:
-    print(f"{product} is not available in the inventory.")
+        print(f"{product} is not available in the inventory.")
 
 
 def check_product_availability(inventory, product):
@@ -35,17 +35,17 @@ def check_product_availability(inventory, product):
 def update_product_quantity(inventory, product, quantity):
     if product in inventory:
         inventory[product] = quantity
-    print(f"Quantity of {product} updated to {quantity}.")
+        print(f"Quantity of {product} updated to {quantity}.")
     else:
-    print(f"{product} is not available in the inventory.")
+        print(f"{product} is not available in the inventory.")
 
 
 def display_out_of_stock_products(inventory):
     out_of_stock = [product for product, quantity in inventory.items() if quantity == 0]
     if out_of_stock:
         print("Products out of stock:")
-    for product in out_of_stock:
-        print(product)
+        for product in out_of_stock:
+            print(product)
     else:
         print("All products are in stock.")
 
@@ -55,7 +55,7 @@ def calculate_inventory_value(inventory, prices):
     for product, quantity in inventory.items():
         if product in prices:
             price = prices[product]
-    total_value += price * quantity
+            total_value += price * quantity
     print(f"Total inventory value: ${total_value:.2f}")
 
 
@@ -69,42 +69,42 @@ def main():
         "Strawberry": 0.2
     }
 
+    while True:
+        print("\nGrocery Store Inventory Management Menu:")
+        print("1. Add product to inventory")
+        print("2. Remove product from inventory")
+        print("3. Check product availability")
+        print("4. Update product quantity")
+        print("5. Display out-of-stock products")
+        print("6. Calculate inventory value")
+        print("7. Exit")
 
-while True:
-    print("\nGrocery Store Inventory Management Menu:")
-    print("1. Add product to inventory")
-    print("2. Remove product from inventory")
-    print("3. Check product availability")
-    print("4. Update product quantity")
-    print("5. Display out-of-stock products")
-    print("6. Calculate inventory value")
-    print("7. Exit")
+        choice = input("Enter your choice: ")
 
-    choice = input("Enter your choice: ")
+        if choice == "1":
+            product = input("Enter the product name: ")
+            quantity = int(input("Enter the quantity: "))
+            add_product(inventory, product, quantity)
+        elif choice == "2":
+            product = input("Enter the product name: ")
+            remove_product(inventory, product)
+        elif choice == "3":
+            product = input("Enter the product name: ")
+            check_product_availability(inventory, product)
+        elif choice == "4":
+            product = input("Enter the product name: ")
+            quantity = int(input("Enter the new quantity: "))
+            update_product_quantity(inventory, product, quantity)
+        elif choice == "5":
+            display_out_of_stock_products(inventory)
+        elif choice == "6":
+            calculate_inventory_value(inventory, prices)
+        elif choice == "7":
+            print("Exiting the program...")
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
-    if choice == "1":
-        product = input("Enter the product name: ")
-        quantity = int(input("Enter the quantity: "))
-        add_product(inventory, product, quantity)
-    elif choice == "2":
-        product = input("Enter the product name: ")
-        remove_product(inventory, product)
-    elif choice == "3":
-        product = input("Enter the product name: ")
-        check_product_availability(inventory, product)
-    elif choice == "4":
-        product = input("Enter the product name: ")
-        quantity = int(input("Enter the new quantity: "))
-        update_product_quantity(inventory, product, quantity)
-    elif choice == "5":
-        display_out_of_stock_products(inventory)
-    elif choice == "6":
-        calculate_inventory_value(inventory, prices)
-    elif choice == "7":
-        print("Exiting the program...")
-        break
-    else:
-        print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
     main()

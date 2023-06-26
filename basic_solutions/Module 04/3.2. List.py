@@ -43,9 +43,9 @@ def analyze_data(records):
     total_age = sum(record['age'] for record in records)
     if len(records) > 0:
         average_age = total_age / len(records)
-    print(f"Average patient age: {average_age:.2f}")
+        print(f"Average patient age: {average_age:.2f}")
     else:
-    print("No patient records available for analysis.")
+        print("No patient records available for analysis.")
 
 
 patient_records = []

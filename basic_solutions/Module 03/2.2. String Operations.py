@@ -14,10 +14,19 @@
 #   o	Count words
 #   o	Check word presence
 #   o	Replace word
-#   o	Exit
+#   	Exit
 # •	Ask the user to select an option by entering the corresponding number.
 # •	Based on the user's choice, perform the corresponding operation.
 # •	Display the result to the user.
+
+comment = input("Enter your comment: ")
+
+print("\nMenu:")
+print("1. Count characters")
+print("2. Count words")
+print("3. Check word presence")
+print("4. Replace word")
+print("5. Exit")
 
 choice = int(input("\nEnter your choice: "))
 
@@ -44,7 +53,7 @@ elif choice == 4:
 
 elif choice == 5:
     print("Exiting the program...")
-    break
+    exit()
 
 else:
     print("Invalid choice. Please try again.")

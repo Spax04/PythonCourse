@@ -41,9 +41,9 @@ def count_fruit(fruits):
 def find_index(fruits):
     try:
         index = fruits.index(fruit)
-    print(f"The fruit '{fruit}' is found at index {index}.")
+        print(f"The fruit '{fruit}' is found at index {index}.")
     except ValueError:
-    print(f"The fruit '{fruit}' is not present in the list.")
+        print(f"The fruit '{fruit}' is not present in the list.")
 
 
 def sort_fruits(fruits):

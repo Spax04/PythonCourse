@@ -43,21 +43,19 @@ class LibraryItem:
             self.available = True
             print(f"{self.title} (ID: {self.id}) has been returned.")
         else:
-            print(f"{self.title} (ID: {self.id}) is already available."
+            print(f"{self.title} (ID: {self.id}) is already available.")
 
 
 class Book(LibraryItem):
-    def init(self, id, title, author):
-        super().init(id, title)
-
-    self.author = author
+    def __init__(self, id, title, author):
+        super().__init__(id, title)
+        self.author = author
 
 
 class DVD(LibraryItem):
-    def init(self, id, title, director):
-        super().init(id, title)
-
-    self.director = director
+    def __init__(self, id, title, director):
+        super().__init__(id, title)
+        self.director = director
 
 
 class Library:
@@ -84,7 +82,6 @@ class Library:
 # Create a library instance
 library = Library()
 
-
 # Add books and DVDs to the library
 book1 = Book(1, "Harry Potter and the Sorcerer's Stone", "J.K. Rowling")
 book2 = Book(2, "To Kill a Mockingbird", "Harper Lee")
@@ -96,10 +93,8 @@ library.add_item(book2)
 library.add_item(dvd1)
 library.add_item(dvd2)
 
-
 # Display all items in the library
 library.display_items()
-
 
 # Simulate borrowing and returning items
 while True:

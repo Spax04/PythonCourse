@@ -10,9 +10,6 @@
 # •	If the user enters an invalid choice, display an error message.
 # •	Remember to use string operations and methods, while and for loops, if and else operators, and functions to implement this program.
 
-comment = input("Enter your comment: ")
-
-
 def display_menu():
     print("Menu Options:")
     print("1. Add item")
@@ -29,29 +26,30 @@ def add_item(menu):
 
 
 def edit_item(menu):
-    tem = input("Enter the name of the menu item to edit: ")
+    item = input("Enter the name of the menu item to edit: ")
     if item in menu:
         new_item = input("Enter the new name for the menu item: ")
-    index = menu.index(item)
-    menu[index] = new_item
-    print(f"Menu item '{item}' has been edited to '{new_item}'.")
+        index = menu.index(item)
+        menu[index] = new_item
+        print(f"Menu item '{item}' has been edited to '{new_item}'.")
     else:
-    print("Menu item not found.")
+        print("Menu item not found.")
+
 
 def delete_item(menu):
     item = input("Enter the name of the menu item to delete: ")
     if item in menu:
         menu.remove(item)
-    print(f"Menu item '{item}' has been deleted.")
+        print(f"Menu item '{item}' has been deleted.")
     else:
-    print("Menu item not found.")
+        print("Menu item not found.")
 
 
 def display_menu_items(menu):
     if menu:
-    print("Menu:")
-    for item in menu:
-        print(item)
+        print("Menu:")
+        for item in menu:
+            print(item)
     else:
         print("The menu is currently empty.")
 
@@ -62,6 +60,7 @@ choice = 0
 while choice != 5:
     display_menu()
     choice = int(input("Enter your choice: "))
+
     if choice == 1:
         add_item(menu)
     elif choice == 2:

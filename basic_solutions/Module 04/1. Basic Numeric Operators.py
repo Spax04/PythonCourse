@@ -17,7 +17,8 @@
 # •	Display the tax, discount (if applicable), and final total cost to the user.
 
 
-# Make ‘calculate_subtotal’ function here
+def calculate_subtotal(quantity, price_per_item):
+    return quantity * price_per_item
 
 print("Welcome to the Grocery Store!\n")
 
@@ -58,20 +59,20 @@ while True:
     discount = 0
 
     if total_cost > discount_threshold:
-    discount = total_cost * discount_percentage
-    total_cost -= discount
+        discount = total_cost * discount_percentage
+        total_cost -= discount
 # Displaying the results
 
     print("\n-----Receipt-----")
     for item in grocery_items:
-    item_name, quantity, price_per_item = item
-    print(f"{item_name}: {quantity} x ${price_per_item:.2f}")
-    print("-----------------")
-    print(f"Subtotal: ${grocery_total:.2f}")
-    print(f"Tax: ${tax:.2f}")
+        item_name, quantity, price_per_item = item
+        print(f"{item_name}: {quantity} x ${price_per_item:.2f}")
+        print("-----------------")
+        print(f"Subtotal: ${grocery_total:.2f}")
+        print(f"Tax: ${tax:.2f}")
 
     if discount > 0:
-    print(f"Discount: ${discount:.2f}")
+        print(f"Discount: ${discount:.2f}")
 
     print(f"Total Cost: ${total_cost:.2f}")
 

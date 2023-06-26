@@ -1,0 +1,3 @@
+Total Revenue: 0.00
+Product with Highest Quantity Sold: None
+Average Price of Products: 0.00

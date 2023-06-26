@@ -25,18 +25,18 @@ class Event:
         for category in self.ticket_categories:
             print(category)
 
-class TicketCategory:
-    def init(self, name, price):
-        self.name = name
 
-    self.price = price
+class TicketCategory:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
 
     def __str__(self):
         return f"Category: {self.name}\nPrice: {self.price}"
 
 
 class Ticket:
-    def init(self, event, category):
+    def __init__(self, event, category):
         self.event = event
         self.category = category
 
@@ -45,7 +45,7 @@ class Ticket:
 
 
 class TicketBookingSystem:
-    def init(self):
+    def __init__(self):
         self.events = []
         self.tickets = []
 
@@ -74,6 +74,7 @@ class TicketBookingSystem:
         total_price = sum(ticket.category.price for ticket in self.tickets)
         return total_price
 
+
 # Example usage
 booking_system = TicketBookingSystem()
 
@@ -100,4 +101,3 @@ booking_system.display_tickets()
 
 total_price = booking_system.calculate_total_price()
 print(f"Total Price: {total_price}")
-

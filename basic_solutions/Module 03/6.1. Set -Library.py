@@ -21,7 +21,7 @@ borrowed_books.add("Book 3")
 
 print("Books Currently Borrowed:")
 for book in borrowed_books:
-print(book)
+    print(book)
 
 
 
@@ -29,9 +29,9 @@ print(book)
 
 book_to_check = "Book 2"
 if book_to_check in borrowed_books:
-print(f"The book '{book_to_check}' is currently borrowed.")
+    print(f"The book '{book_to_check}' is currently borrowed.")
 else:
-print(f"The book '{book_to_check}' is not currently borrowed.")
+    print(f"The book '{book_to_check}' is not currently borrowed.")
 
 
 # Remove a book from the system once it is returned
@@ -45,4 +45,4 @@ print(f"The book '{book_to_return}' has been returned and removed from the borro
 
 print("Updated Borrowing System:")
 for book in borrowed_books:
-print(book)
+    print(book)

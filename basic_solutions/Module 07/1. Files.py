@@ -11,6 +11,7 @@
 # 4.	Find the average price of all products.
 # 5.	Write the calculated statistics to a new file named "sales_summary.txt".
 
+
 class SalesDataAnalyzer:
     def __init__(self, file_path):
         self.file_path = file_path
@@ -41,8 +42,10 @@ class SalesDataAnalyzer:
                 total_products += 1
 
         # Calculate average price
-        average_price = total_revenue / total_products
-
+        if total_products != 0:
+            average_price = total_revenue / total_products
+        else:
+            average_price = 0
         # Write the calculated statistics to a new file
         summary = f"Total Revenue: {total_revenue:.2f}\n"
         summary += f"Product with Highest Quantity Sold: {max_quantity_product}\n"
@@ -51,6 +54,9 @@ class SalesDataAnalyzer:
         with open('sales_summary.txt', 'w') as file:
             file.write(summary)
 
+
 # Usage example:
 analyzer = SalesDataAnalyzer('sales_data.txt')
 analyzer.analyze_sales_data()
+
+

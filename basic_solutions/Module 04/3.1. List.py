@@ -36,9 +36,9 @@ def analyze_tweets(tweets):
     total_length = sum(len(tweet) for tweet in tweets)
     if len(tweets) > 0:
         average_length = total_length / len(tweets)
-    print(f"Average tweet length: {average_length:.2f}")
+        print(f"Average tweet length: {average_length:.2f}")
     else:
-    print("No tweets available for analysis.")
+        print("No tweets available for analysis.")
 
 tweets = []
 choice = 0

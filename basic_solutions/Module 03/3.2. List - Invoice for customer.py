@@ -20,11 +20,11 @@ total_price = 0
 # Get item details from the user
 
 for i in range(num_items):
-item_name = input(f"Enter the name of item {i+1}: ")
-item_price = float(input(f"Enter the price of item {i+1}: "))
-item_names.append(item_name)
-item_prices.append(item_price)
-total_price += item_price
+    item_name = input(f"Enter the name of item {i+1}: ")
+    item_price = float(input(f"Enter the price of item {i+1}: "))
+    item_names.append(item_name)
+    item_prices.append(item_price)
+    total_price += item_price
 
 
 # Generate the invoice using string formatting
@@ -40,7 +40,7 @@ Items Purchased:
 # Add itemized information to the invoice
 
 for i in range(num_items):
-invoice += f"{i+1}. {item_names[i]} - ${item_prices[i]:.2f}\n"
+    invoice += f"{i+1}. {item_names[i]} - ${item_prices[i]:.2f}\n"
 
 invoice += f"\nTotal Price: ${total_price:.2f}"
 
