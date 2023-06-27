@@ -1,0 +1,10 @@
+EXPORTS
+    SampleAddInt @1
+    SampleFunction1 @2
+    SampleFunction2 @3
+    doubleFunc @4
+    floatFunc @5
+    helloWorld @6
+    printString @7
+    strFunction @8
+    structFunc @9
