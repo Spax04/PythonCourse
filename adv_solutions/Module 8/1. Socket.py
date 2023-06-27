@@ -40,6 +40,7 @@ class ChatClient:
             return message
         except socket.error as e:
             print(f"Error receiving message: {str(e)}")
+            return None
 
     def close(self):
         try:
@@ -50,14 +51,15 @@ class ChatClient:
 
 
 # Example usage
-client = ChatClient('localhost', 5000)
+client = ChatClient('192.168.12.12', 12345)
 client.connect()
 
 message = input("Enter a message to send: ")
 client.send_message(message)
 
 received_message = client.receive_message()
-print("Received message:", received_message)
+if received_message:
+    print("Received message:", received_message)
 
 client.close()
 

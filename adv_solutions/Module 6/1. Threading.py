@@ -24,7 +24,7 @@ import threading
 
 
 class FileProcessor:
-    def init(self):
+    def __init__(self):
         self.results = []
 
     def process_file(self, filename):
@@ -32,22 +32,27 @@ class FileProcessor:
             lines_count = len(file.readlines())
             self.results.append({filename: lines_count})
 
-def worker(processor, filename):
+
+def worker(processor, filename, lock):
     lock.acquire()
-    processor.process_file(filename)
-    print(f"Thread ID: {threading.get_ident()}, Processing file: {filename}")
-    lock.release()
+    try:
+        processor.process_file(filename)
+        print(f"Thread ID: {threading.get_ident()}, Processing file: {filename}")
+    finally:
+        lock.release()
+
 
 def main():
     processor = FileProcessor()
     filenames = ["file1.txt", "file2.txt", "file3.txt"]  # List of filenames to process
     threads = []
+
     # Create a lock for synchronization
     lock = threading.Lock()
 
     # Create and start multiple threads
     for filename in filenames:
-        thread = threading.Thread(target=worker, args=(processor, filename))
+        thread = threading.Thread(target=worker, args=(processor, filename, lock))
         threads.append(thread)
         thread.start()
 
@@ -57,6 +62,7 @@ def main():
 
     # Print the results
     print(processor.results)
+
 
 if __name__ == '__main__':
     main()

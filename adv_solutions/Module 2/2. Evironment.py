@@ -1,4 +1,4 @@
-# You are tasked with creating a Python program that interacts with environment variables and performs various operations on directories using the os module. The program should have the following functionality:
+5# You are tasked with creating a Python program that interacts with environment variables and performs various operations on directories using the os module. The program should have the following functionality:
 #
 # Display the current working directory.
 # Change the working directory to a specified path.

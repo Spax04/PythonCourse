@@ -47,12 +47,12 @@ account.withdraw(200)
 print(account.get_balance()) # Output: 1300
 
 try:
-account.deposit(-100)
+    account.deposit(-100)
 except InvalidDepositAmountError as e:
-print(str(e)) # Output: Invalid deposit amount: -100
+    print(str(e)) # Output: Invalid deposit amount: -100
 
 try:
-account.withdraw(2000)
+    account.withdraw(2000)
 except InsufficientFundsError as e:
-print(str(e)) # Output: Insufficient funds for withdrawal: 2000
+    print(str(e)) # Output: Insufficient funds for withdrawal: 2000
 

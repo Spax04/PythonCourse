@@ -12,6 +12,7 @@
 # •	Note: Make sure to handle any potential errors that may occur during the compression or decompression process.
 
 import subprocess
+import zipfile
 
 class FileCompressor:
     def __init__(self, file_path, compression_algorithm):
@@ -21,14 +22,9 @@ class FileCompressor:
     def compress(self):
         if self.compression_algorithm == "zip":
             try:
-                subprocess.run(["zip", self.file_path + ".zip", self.file_path], check=True)
+                subprocess.run(["C:/Program Files/7-Zip/7z.exe", "a", self.file_path + ".zip", self.file_path + ".txt"],
+                               check=True)
                 return f"Compression successful. File {self.file_path} was compressed using ZIP."
-            except subprocess.CalledProcessError:
-                return f"Compression failed. An error occurred during the compression process."
-        elif self.compression_algorithm == "gzip":
-            try:
-                subprocess.run(["gzip", self.file_path], check=True)
-                return f"Compression successful. File {self.file_path} was compressed using GZIP."
             except subprocess.CalledProcessError:
                 return f"Compression failed. An error occurred during the compression process."
         else:
@@ -37,24 +33,23 @@ class FileCompressor:
     def decompress(self):
         if self.compression_algorithm == "zip":
             try:
-                subprocess.run(["unzip", self.file_path, "-d", "./"], check=True)
+                with zipfile.ZipFile(self.file_path, "r") as zip_ref:
+                    zip_ref.extractall()
                 return f"Decompression successful. File {self.file_path} was decompressed using ZIP."
-            except subprocess.CalledProcessError:
-                return f"Decompression failed. An error occurred during the decompression process."
-        elif self.compression_algorithm == "gzip":
-            try:
-                subprocess.run(["gunzip", self.file_path], check=True)
-                return f"Decompression successful. File {self.file_path} was decompressed using GZIP."
-            except subprocess.CalledProcessError:
-                return f"Decompression failed. An error occurred during the decompression process."
+            except zipfile.BadZipFile:
+                return f"Decompression failed. The ZIP file is invalid or corrupted."
+            except Exception as e:
+                print(e)
+                return f"Decompression failed. An unknown error occurred during the decompression process."
         else:
             return f"Decompression failed. Unsupported compression algorithm: {self.compression_algorithm}."
 
 
+
 # Example usage
-compressor = FileCompressor("my_file.txt", "zip")
+compressor = FileCompressor("my_file", "zip")
 print(compressor.compress())
 
-decompressor = FileCompressor("compressed.zip", "zip")
+decompressor = FileCompressor("my_file.zip", "zip")
 print(decompressor.decompress())
 

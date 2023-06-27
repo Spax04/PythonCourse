@@ -35,13 +35,12 @@ def authenticate_decorator(password):
             else:
                 print("Authentication failed. Access denied.")
         return wrapper
-
     return decorator
 
 
 def log_decorator(func):
     def wrapper(*args, **kwargs):
-        print("Executing method:", func.name)
+        print("Executing method:", func.__name__)
         return func(*args, **kwargs)
     return wrapper
 

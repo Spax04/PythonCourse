@@ -14,24 +14,19 @@ class FileCompressor:
     @staticmethod
     def compress_file(input_file, output_file):
         try:
-            subprocess.run(['gzip', '-c', input_file], stdout=open(output_file, 'wb'), check=True)
-        print(f"Compression successful. File {input_file} was compressed and saved as {output_file}.")
+            subprocess.run(['gzip', '-c', input_file], stdout=subprocess.PIPE, check=True)
+            with open(output_file, 'wb') as f:
+                f.write(subprocess.run(['gzip', '-c', input_file], stdout=subprocess.PIPE, check=True).stdout)
+            print(f"Compression successful. File {input_file} was compressed and saved as {output_file}.")
         except subprocess.CalledProcessError:
-        print(f"Compression failed. An error occurred during the compression process.")
+            print(f"Compression failed. An error occurred during the compression process.")
 
     @staticmethod
     def decompress_file(input_file, output_file):
         try:
-            subprocess.run(['gzip', '-d', '-c', input_file], stdout=open(output_file, 'wb'), check=True)
+            subprocess.run(['gzip', '-d', '-c', input_file], stdout=subprocess.PIPE, check=True)
+            with open(output_file, 'wb') as f:
+                f.write(subprocess.run(['gzip', '-d', '-c', input_file], stdout=subprocess.PIPE, check=True).stdout)
             print(f"Decompression successful. File {input_file} was decompressed and saved as {output_file}.")
         except subprocess.CalledProcessError:
             print(f"Decompression failed. An error occurred during the decompression process.")
-
-# Example usage
-compressor = FileCompressor()
-
-# Compressing a file
-compressor.compress_file('input.txt', 'compressed.gz')
-
-# Decompressing a file
-compressor.decompress_file('compressed.gz', 'decompressed.txt')

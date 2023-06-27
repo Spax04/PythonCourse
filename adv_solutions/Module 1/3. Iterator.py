@@ -72,7 +72,7 @@ book_iterator.filter_books()
 # Iterate over the filtered books and print their titles
 print("Filtered Books:")
 for book in book_iterator:
-print(book["title"])
+    print(book["title"])
 
 # Set sort criteria to sort books by publication year
 book_iterator.sort_books(books)
@@ -80,5 +80,5 @@ book_iterator.sort_books(books)
 # Iterate over all the books sorted by publication year and print their titles
 print("\nSorted Books:")
 for book in book_iterator:
-print(book["title"])
+    print(book["title"])
 

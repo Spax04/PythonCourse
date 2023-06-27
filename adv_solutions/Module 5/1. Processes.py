@@ -23,18 +23,18 @@ class ReviewAnalyzer(multiprocessing.Process):
         super().__init__()
         self.review_data = review_data
         self.process_id = process_id
+        self.positive_count = 0
+        self.negative_count = 0
 
     def run(self):
         print(f"Starting process {self.process_id}...")
-        positive_count = 0
-        negative_count = 0
         for review in self.review_data:
             sentiment = analyze_sentiment(review)
             if sentiment == "positive":
-                positive_count += 1
+                self.positive_count += 1
             elif sentiment == "negative":
-                negative_count += 1
-        print(f"Process {self.process_id} finished. Positive count: {positive_count}, Negative count: {negative_count}")
+                self.negative_count += 1
+        print(f"Process {self.process_id} finished. Positive count: {self.positive_count}, Negative count: {self.negative_count}")
 
 def analyze_sentiment(review):
     if "amazing" in review or "recommended" in review or "excellent" in review:
@@ -44,39 +44,40 @@ def analyze_sentiment(review):
     else:
         return "neutral"
 
-# Sample review dataset
-reviews = [
-    "This product is amazing!",
-    "The quality is subpar.",
-    "Highly recommended.",
-    "Not worth the price.",
-    "Excellent product!"
-]
+if __name__ == '__main__':
+    # Sample review dataset
+    reviews = [
+        "This product is amazing!",
+        "The quality is subpar.",
+        "Highly recommended.",
+        "Not worth the price.",
+        "Excellent product!"
+    ]
 
-# Create instances of ReviewAnalyzer
-processes = []
-num_processes = 2  # Number of processes to create
+    # Create instances of ReviewAnalyzer
+    processes = []
+    num_processes = 2  # Number of processes to create
 
-chunk_size = len(reviews) // num_processes
-for i in range(num_processes):
-    start = i * chunk_size
-    end = (i + 1) * chunk_size if i < num_processes - 1 else None
-    process = ReviewAnalyzer(reviews[start:end], i)
-    processes.append(process)
+    chunk_size = len(reviews) // num_processes
+    for i in range(num_processes):
+        start = i * chunk_size
+        end = (i + 1) * chunk_size if i < num_processes - 1 else None
+        process = ReviewAnalyzer(reviews[start:end], i)
+        processes.append(process)
 
-# Start each instance of the ReviewAnalyzer class
-for process in processes:
-    process.start()
+    # Start each instance of the ReviewAnalyzer class
+    for process in processes:
+        process.start()
 
-# Join all the processes
-for process in processes:
-    process.join()
+    # Join all the processes
+    for process in processes:
+        process.join()
 
-# Aggregate the results
-positive_count = 0
-negative_count = 0
-for process in processes:
-    positive_count += process.positive_count
-    negative_count += process.negative_count
+    # Aggregate the results
+    positive_count = 0
+    negative_count = 0
+    for process in processes:
+        positive_count += process.positive_count
+        negative_count += process.negative_count
 
-print(f"Total Positive count: {positive_count}, Total Negative count: {negative_count}")
+    print(f"Total Positive count: {positive_count}, Total Negative count: {negative_count}")

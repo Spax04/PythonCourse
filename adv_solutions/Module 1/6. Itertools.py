@@ -20,10 +20,10 @@ total_fruits = 5
 possible_combinations = []
 
 for r in range(total_fruits + 1):
-for combination in itertools.combinations_with_replacement(fruits.keys(), r):
-total_price = sum(fruits[fruit] for fruit in combination)
-if total_price <= customer_budget:
-possible_combinations.append(combination)
+    for combination in itertools.combinations_with_replacement(fruits.keys(), r):
+        total_price = sum(fruits[fruit] for fruit in combination)
+        if total_price <= customer_budget:
+            possible_combinations.append(combination)
 
 for combination in possible_combinations:
-print(combination)
+    print(combination)
